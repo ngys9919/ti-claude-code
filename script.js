@@ -239,7 +239,7 @@ function pauseGame() {
     gameLoop = null;
     state = 'paused';
     pauseBtn.textContent = 'Resume';
-    showOverlay('Paused', 'Press Resume or P to continue.');
+    showOverlay('Paused', 'Press Resume or P to continue\u2026');
   } else {
     state = 'running';
     pauseBtn.textContent = 'Pause';
@@ -253,7 +253,9 @@ function endGame() {
   gameLoop = null;
   state = 'over';
   pauseBtn.disabled = true;
-  showOverlay('Game Over', `Final score: ${score}. Press Restart to play again.`);
+  const isBest = score > 0 && score === highScore;
+  const tail = isBest ? ' \u2014 new best!' : '';
+  showOverlay('Game Over', `Final score: ${score}${tail}. Press Restart to play again.`);
   startBtn.textContent = 'Play Again';
 }
 

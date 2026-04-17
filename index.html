@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0a14" />
+  <meta name="description" content="A neon-themed Snake game. Play with arrow keys, WASD, swipe, or on-screen buttons." />
   <title>Snake Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">Snake Game</h1>
+  <main class="container" aria-labelledby="page-title">
+    <header class="hero">
+      <h1 class="title" id="page-title">Snake Game</h1>
+      <p class="subtitle">Eat the glow. Grow the streak. Don&rsquo;t bite yourself.</p>
+    </header>
 
-    <div class="scoreboard">
+    <section class="scoreboard" aria-label="Game stats" aria-live="polite">
       <div class="score-box">
         <span class="score-label">Score</span>
         <span class="score-value" id="score">0</span>
@@ -23,37 +29,61 @@
         <span class="score-label">Level</span>
         <span class="score-value" id="level">1</span>
       </div>
-    </div>
+    </section>
 
     <div class="canvas-wrapper">
-      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <canvas
+        id="gameCanvas"
+        width="400"
+        height="400"
+        role="img"
+        aria-label="Snake game board, 20 by 20 grid"
+      ></canvas>
 
-      <div class="overlay" id="overlay">
+      <div class="overlay" id="overlay" role="dialog" aria-modal="false" aria-labelledby="overlay-title">
         <div class="overlay-content">
-          <h2 id="overlay-title">Snake Game</h2>
-          <p id="overlay-message">Use arrow keys to move. Eat food to grow!</p>
-          <button class="btn" id="start-btn">Start Game</button>
+          <h2 id="overlay-title">Ready to Play?</h2>
+          <p id="overlay-message">Use arrow keys or swipe to move. Eat food to grow.</p>
+          <button class="btn" id="start-btn" type="button">Start Game</button>
         </div>
       </div>
     </div>
 
     <div class="controls">
-      <button class="btn btn-secondary" id="pause-btn" disabled>Pause</button>
-      <button class="btn btn-secondary" id="restart-btn" disabled>Restart</button>
+      <button class="btn btn-secondary" id="pause-btn" type="button" disabled>Pause</button>
+      <button class="btn btn-secondary" id="restart-btn" type="button" disabled>Restart</button>
     </div>
 
-    <!-- Mobile touch controls -->
-    <div class="touch-controls">
+    <section class="hints" aria-label="Keyboard shortcuts">
+      <div class="hint">
+        <kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&larr;</kbd><kbd>&rarr;</kbd>
+        <span>Move</span>
+      </div>
+      <div class="hint">
+        <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+        <span>Move</span>
+      </div>
+      <div class="hint">
+        <kbd>P</kbd>
+        <span>Pause</span>
+      </div>
+      <div class="hint">
+        <kbd>Space</kbd>
+        <span>Start / Pause</span>
+      </div>
+    </section>
+
+    <nav class="touch-controls" aria-label="On-screen movement controls">
       <div class="touch-row">
-        <button class="touch-btn" id="up-btn">&#9650;</button>
+        <button class="touch-btn" id="up-btn" type="button" aria-label="Move up">&#9650;</button>
       </div>
       <div class="touch-row">
-        <button class="touch-btn" id="left-btn">&#9664;</button>
-        <button class="touch-btn" id="down-btn">&#9660;</button>
-        <button class="touch-btn" id="right-btn">&#9654;</button>
+        <button class="touch-btn" id="left-btn" type="button" aria-label="Move left">&#9664;</button>
+        <button class="touch-btn" id="down-btn" type="button" aria-label="Move down">&#9660;</button>
+        <button class="touch-btn" id="right-btn" type="button" aria-label="Move right">&#9654;</button>
       </div>
-    </div>
-  </div>
+    </nav>
+  </main>
 
   <script src="script.js"></script>
 </body>
