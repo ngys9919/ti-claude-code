@@ -1,0 +1,1 @@
+create a prompt to create web app for snake game; use html/css/javascript; output as markdown

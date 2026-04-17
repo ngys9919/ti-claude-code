@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Snake Game</h1>
+
+    <div class="scoreboard">
+      <div class="score-box">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="score">0</span>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Best</span>
+        <span class="score-value" id="high-score">0</span>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Level</span>
+        <span class="score-value" id="level">1</span>
+      </div>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+      <div class="overlay" id="overlay">
+        <div class="overlay-content">
+          <h2 id="overlay-title">Snake Game</h2>
+          <p id="overlay-message">Use arrow keys to move. Eat food to grow!</p>
+          <button class="btn" id="start-btn">Start Game</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="pause-btn" disabled>Pause</button>
+      <button class="btn btn-secondary" id="restart-btn" disabled>Restart</button>
+    </div>
+
+    <!-- Mobile touch controls -->
+    <div class="touch-controls">
+      <div class="touch-row">
+        <button class="touch-btn" id="up-btn">&#9650;</button>
+      </div>
+      <div class="touch-row">
+        <button class="touch-btn" id="left-btn">&#9664;</button>
+        <button class="touch-btn" id="down-btn">&#9660;</button>
+        <button class="touch-btn" id="right-btn">&#9654;</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
